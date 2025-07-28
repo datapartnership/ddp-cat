@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Lab Projects</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container d-flex justify-content-center">
+                <a class="navbar-brand" href="https://datalab.worldbank.org/" target="_blank">
+                    <img src="{{ url_for('static', filename='images/data-lab.png') }}" alt="Data Lab Logo" class="logo-img">
+                </a>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main class="container mt-4">
+            <h1 class="page-title">Projects</h1>
+
+            <!-- New Description Text -->
+            <p class="data-lab-description">
+                The Data Lab supports World Bank operations – lending, technical assistance, and economic reporting – by coordinating ad-hoc teams of data analysts and specialists from across our organization. Through the Lab, teams solve global challenges using best practices in coding, code documentation, and data visualization.
+            </p>
+            <p class="data-lab-description">
+                Unlike a traditional data analysis, which results in a single-use report or visualization, Data Lab products are designed to be customized, reused, and updated, thereby building the capacity of the World Bank and partner organizations to quickly deliver complex data science solutions to pressing global challenges.
+            </p>
+            <p class="data-lab-description">
+                For more information about how we work, check out the intro page to this 
+                <a href="https://worldbank.github.io/ethiopia-economic-monitoring/docs/1-intro-to-data-lab.html" target="_blank">sample project</a>, or search our portfolio, below. Note some projects are not public and require permissions to access. Got questions? Click the "Ask The Lab Anything" button on our <a href="https://datalab.worldbank.org/" target="_blank">Data Lab Site</a>.
+            </p>
+            <p class="data-lab-description">
+                 
+            </p>            
+            <br>
+            </br>
+
+            <!-- Search Form (With Added Margin for Space) -->
+            <form method="GET" action="{{ url_for('home') }}" class="d-flex mb-5">
+                <input class="form-control me-2" type="search" name="q" value="{{ query }}" placeholder="Search projects..." aria-label="Search">
+                <button class="btn btn-primary" type="submit">Search</button>
+                <a href="{{ url_for('home') }}" class="btn btn-secondary ms-2">Clear</a>
+            </form>
+
+            <!-- Project Cards -->
+            <div class="masonry-grid">
+                {% for project in projects %}
+                    {% if project['project-title'] and project['project-title'] != 'nan' %}  <!-- Skip NaN entries -->
+                    <div class="masonry-item">
+                        <div class="card">
+                            {% if project['image-link'] and project['image-link'] != 'nan' %}
+                                <img src="{{ url_for('static', filename=project['image-link'].replace('static/', '')) }}" class="card-img-top" alt="Project Image">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ project['project-title'] }}</h5>
+                                <p class="card-text">{{ project['description'] }}</p>
+                                <a href="{{ project['web-book-link'] }}" class="btn btn-primary">View More</a>
+                            </div>
+                        </div>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </main>
+    </div>
+
+    <!-- Spacer to push footer down -->
+    <div class="footer-spacer"></div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>© 2025 WB Data Lab. All Rights Reserved.</p>
+        </div>
+
+
+
+    
+</body>
+</html>

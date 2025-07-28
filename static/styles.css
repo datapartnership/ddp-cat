@@ -1,0 +1,235 @@
+/* Force Full-Height Layout */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Wrapper for Content */
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Ensure Main Content Fills Space */
+main {
+  flex: 1;
+}
+
+/* Navbar */
+.navbar {
+  background-color: transparent !important; /* No background */
+  box-shadow: none; /* Remove any shadows */
+  border-bottom: none;
+  padding: 0; /* Remove extra spacing */
+}
+
+/* Logo Styling */
+.logo-img {
+  height: 160px; /* Adjust size as needed */
+  width: auto;  /* Maintain aspect ratio */
+  margin-right: 10px;
+}
+
+/* Align "Data Lab Projects" to the Left */
+.page-title {
+  text-align: left;
+  font-size: 24px; /* Reduce size */
+  color: #310459; /* Dark Purple */
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+/* Fix Bootstrap Override for Buttons */
+.btn {
+  font-weight: bold !important;
+  text-transform: uppercase;
+}
+
+/* Primary Button - Burnt Orange */
+.btn-primary {
+  background-color: #BF5700 !important;  /* Burnt Orange */
+  border-color: #BF5700 !important;
+  color: #ffffff !important;
+}
+
+.btn-primary:hover {
+  background-color: #9C4600 !important; /* Darker Burnt Orange */
+  border-color: #9C4600 !important;
+  color: #ffffff !important;
+}
+
+/* Secondary Button - Burnt Orange Outline */
+.btn-secondary {
+  background-color: transparent !important;
+  border-color: #BF5700 !important;
+  border-radius: 50px !important;
+  color: #BF5700 !important;
+}
+
+.btn-secondary:hover {
+  background-color: #BF5700 !important;
+  border-color: #BF5700 !important;
+  color: #fff !important;
+}
+
+/* Cards */
+.card {
+  background-color: #6699CC;
+  color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+/* Ensure Images Fit Properly */
+.card img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* Make Cards Stretch Based on Content */
+.card {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-body {
+  flex-grow: 1; /* Ensures text stretches properly */
+}
+
+/* Footer Sticks to Bottom */
+footer {
+  background-color: #001E60;
+  color: #f8f9fa;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  margin-top: auto;
+}
+
+footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+footer a {
+  color: #f8f9fa;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #DF6B00;
+}
+
+/* Add space between cards and footer */
+.project-container {
+  margin-bottom: 50px; /* Adjust space as needed */
+}
+
+/* ✅ True Masonry Grid */
+.masonry-grid {
+  column-count: 3; /* 3 columns on large screens */
+  column-gap: 20px; /* Space between columns */
+  width: 100%;
+}
+
+/* ✅ Ensure Cards Fit in Columns */
+.masonry-item {
+  display: inline-block; /* Ensures cards align correctly */
+  width: 100%; /* Allows automatic width */
+  margin-bottom: 20px; /* Space between rows */
+}
+
+/* ✅ Fix Card Styling */
+.masonry-item .card {
+  display: inline-block;
+  width: 100%;
+  break-inside: avoid; /* Prevents cards from breaking across columns */
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ Responsive Adjustments */
+@media (max-width: 992px) {
+  .masonry-grid {
+      column-count: 2; /* 2 columns on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .masonry-grid {
+      column-count: 1; /* 1 column on mobile */
+  }
+}
+
+
+/* ✅ Responsive Adjustments */
+@media (max-width: 992px) {
+  .masonry-item {
+    width: calc(50% - 20px); /* Two columns on tablets */
+  }
+}
+
+@media (max-width: 768px) {
+  .masonry-item {
+    width: 100%; /* One column on mobile */
+  }
+}
+/* Logo Styling */
+.logo-img {
+  height: 160px; /* Adjust size as needed */
+  width: auto;
+  margin-right: 10px;
+}
+
+/* Data Lab Description */
+.data-lab-description {
+  font-size: 16px;
+  color: #333; /* Dark gray for readability */
+  line-height: 1.6;
+  max-width: 800px; /* Keep text nicely contained */
+  margin-bottom: 15px;
+}
+
+/* Styling for the sample project link */
+.data-lab-description a {
+  color: #310459; /* Dark purple */
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.data-lab-description a:hover {
+  color: #BF5700; /* Burnt Orange */
+  text-decoration: underline;
+}
+/* Add extra space between last row of cards and footer */
+.project-container {
+  padding-bottom: 80px; /* Increased padding to prevent overlap */
+}
+/* Ensure the content wrapper takes full space */
+.content-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Fix footer overlap by adding margin */
+footer {
+  background-color: #001E60;
+  color: #f8f9fa;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  margin-top: 50px; /* Space between the last card and the footer */
+  flex-shrink: 0;
+}
+
+/* Ensure masonry grid has enough bottom space */
+.masonry-grid {
+  margin-bottom: 80px; /* Prevents last row from touching footer */
+}
+
